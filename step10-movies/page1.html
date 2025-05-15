@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+    <h1>Page 1 de votre application</h1>
+    <h2>Ecrivez le code de la 1ère page de votre application entre les balises body</h2>
+
+    <p>Voilà un exemple de boucle (structure de contrôle) dans un template Jinja</p>
+    <p>La liste des films récupérée vaut</p>
+
+    {% for movie in movies %}
+
+        <li>Nom: {{ movie["title"] }}, Année: {{ movie["year"] }}</li>
+
+    {% endfor %}
+
+    
+</body>
+</html>
