@@ -1,38 +1,12 @@
 # Importation de Flask
 from flask import Flask
 from random import randint
+from db import *
 
 # Création de l'application Flask
 app = Flask(__name__)
 
-tasks_data = [
-    'Apprendre Python',
-    'Apprendre Flask',
-    'Créer une application Web',
-    'Réviser les maths',
-    'Préparer les valises'
-]
 
-def render_template(filename, **kwargs):
-    """
-    Charge un fichier de modèle HTML et le renvoie sous forme de chaîne.
-    """
-    html = ''
-    with open(filename, 'r') as file:
-        html = file.read()
-    for key, value in kwargs.items():
-        html = html.replace('{{ ' + key + ' }}', str(value))
-    return html
-
-def ul(items):
-    """
-    Crée une liste HTML à partir d'une liste d'éléments.
-    """
-    html = '<ul>'
-    for item in items:
-        html += f'<li>{item}</li>'
-    html += '</ul>'
-    return html
 
 # Route qui affiche une liste de tâches à effectuer
 @app.route('/tasks')

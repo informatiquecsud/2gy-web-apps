@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Profil de {{ username }}{% endblock %}
+
+{% block content %}
+    <h2>Profil Utilisateur</h2>
+    {% if username %}
+        <p>Nom d'utilisateur : <strong>{{ username }}</strong></p>
+        <p>Ceci est votre page de profil. Elle est accessible uniquement si vous êtes connecté.</p>
+        {% else %}
+        <p>Impossible de charger les informations du profil.</p>
+    {% endif %}
+{% endblock %}

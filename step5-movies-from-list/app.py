@@ -4,8 +4,6 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-movie_fields = ["title", "year"]
-
 # liste de champs
 movie_fields = [
     'title', 'year', 'director', 'main_actors', 'rating'

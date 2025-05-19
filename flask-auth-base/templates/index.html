@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+    <h2>Page d'Accueil</h2>
+    {% if username %}
+        <p>Bienvenue, {{ username }} !</p>
+        <p>Vous êtes connecté.</p>
+    {% else %}
+        <p>Bienvenue ! Veuillez vous <a href="{{ url_for('login') }}">connecter</a> ou vous <a href="{{ url_for('register') }}">enregistrer</a>.</p>
+    {% endif %}
+{% endblock %}
