@@ -1,29 +1,30 @@
 # Importation de Flask
 from flask import Flask
 from random import randint
-from db import *
+
+# Importation des fonctions de génération de HTML
+from html_builder import render_template, ul
 
 # Création de l'application Flask
 app = Flask(__name__)
 
-
+# Données manipulées par l'application
+tasks_data = [
+    'Apprendre Python',
+    'Apprendre Flask',
+    'Créer une application Web'
+]
 
 # Route qui affiche une liste de tâches à effectuer
 @app.route('/tasks')
 def tasks():
     tasks_html = ul(tasks_data)
-    print(tasks_html)
     return render_template('layout.html', title='Liste des tâches', content=tasks_html)
 
 # Définition de la route principale
 @app.route('/')
 def hello():
-    content = '''
-    <h3>Bienvenue sur notre application Flask !</h3>
-    <p>Cette application vous permet de gérer vos tâches.</p>
-    <p>Utilisez le lien ci-dessous pour voir la liste des tâches.</p>
-    <a href="tasks">Voir les tâches</a>
-    '''
+    content = render_template('welcome.html')
     return render_template('layout.html', title='Accueil', content=content)
 
 
@@ -31,5 +32,8 @@ def hello():
 # sera lancée sur le serveur de développement intégré de Flask en écoutant sur
 # un port aléatoire entre 8001 et 8999.
 if __name__ == '__main__':
-    port = randint(8001, 8999)
+    # Vous devez modifier cela avec le numéro de port qui vous a été attribué
+    # par votre professeur. Le numéro de port est indiqué dans le fichier qui
+    # définit les équipes
+    port = 8011
     app.run(debug=True, host='0.0.0.0', port=port)
