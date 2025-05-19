@@ -5,7 +5,7 @@ from random import randint
 # Importation des données
 from db import movie_fields, movie_rows
 # Importation des fonctions de génération de HTML
-from html import render_template, ul
+from html import render_template, ul, table
 
 # Création de l'application Flask
 app = Flask(__name__)
@@ -16,7 +16,7 @@ def movies():
     '''
     Affiche une liste de films à partir des données fournies.
     '''
-    ...
+    return render_template('layout.html', title="Liste des films", content=table(movie_fields, movie_rows))
     
 # Définition de la route principale
 @app.route('/')

@@ -57,5 +57,6 @@ def hello():
 # sera lancée sur le serveur de développement intégré de Flask en écoutant sur
 # un port aléatoire entre 8001 et 8999.
 if __name__ == '__main__':
-    port = randint(8001, 8999)
+    port = 8013
+
     app.run(debug=True, host='0.0.0.0', port=port)
